@@ -22,6 +22,6 @@ getrepo() {
 }
 
 checkdependencies
-echo "Dependencies met, doing next thing....."
+echo "Dependencies met"
 getrepo
 echo "installation complete"
