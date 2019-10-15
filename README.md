@@ -21,6 +21,11 @@
   - cloudKi-static-server-module(sub-module)
   - cloudKi-cloud-client-module(sub-module)
 
+#### -- CloudKi-iot-clients
+- CloudKi-modules
+  - cloudKi-static-server-module(sub-module)
+  - cloudKi-cloud-client-module(sub-module)
+
 
 todo:
  - install wpa_supplicant
