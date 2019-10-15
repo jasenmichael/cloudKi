@@ -17,7 +17,7 @@
   - frontend
 
 #### -- CloudKi-iot Modules
-- CloudKi-iot-modules
+- CloudKi-modules
   - cloudKi-static-server-module(sub-module)
   - cloudKi-cloud-client-module(sub-module)
 
