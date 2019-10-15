@@ -1,0 +1,14 @@
+node_modules
+**/node_modules
+apps/*
+!apps/README.md
+!apps/.gitkeep
+*.tar
+public/*
+modules/*
+.env
+**/.env
+
+# default modules included in cloudKi
+!modules/cloud-client
+!modules/static-server
