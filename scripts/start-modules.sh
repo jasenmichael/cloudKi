@@ -12,13 +12,16 @@ fi
 
 for D in *; do
     if [ -d "${D}" ]; then
+        
+        echo "Configuring ${D}"
         # if [ grep -Fxq "${D}" .configured ]; then
         if grep -Fxq "${D}" .configured
         then
-        #     echo "${D} configured"            
-        # else
+            echo "${D} already configured"
+        else
             echo "Configuring ${D}"
             if [ -f "${D}/package.json" ]; then
+                echo "$D"
                 echo "$D" >> .configured
                 pm2 delete $D >/dev/null 2>&1
                 # echo "$D"
@@ -34,12 +37,12 @@ done
 
 pm2 startup > tmp
 sleep 1
-echo "$(tail -n +3 tmp)"
+# echo "$(tail -n +3 tmp)"
 eval "$(tail -n +3 tmp)" >/dev/null 2>&1
+sleep 3
+pm2 save -f >/dev/null 2>&1
+pm2 restart all >/dev/null 2>&1
 sleep 1
-pm2 save
-sleep 1
-# pm2 list
-pm2 restart all
+pm2 list
 rm tmp
 cd $STARTING_DIR
