@@ -52,7 +52,7 @@ cd $STARTING_DIR
 lanip="$(hostname --ip-address)"
 cat << EOF
 Modules started susessfully
-
+---------------------
 UI locally at
    http://localhost:8081
 UI over lan at
