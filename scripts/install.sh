@@ -11,7 +11,7 @@ fi
 
 # check if scripts and modules directory exist
 if [ -d "cloudKi" ]; then
-    cd $DIR
+    cd cloudKi
 fi
 
 if [ -d "scripts" ] && [ -d "apps" ]; then
