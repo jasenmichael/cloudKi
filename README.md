@@ -1,5 +1,15 @@
 # cloudKi
 
+to install
+```bash
+wget -O - https://raw.githubusercontent.com/jasenmichael/cloudKi-iot-rp4/master/scripts/install.sh | bash
+
+or
+
+curl -s https://raw.githubusercontent.com/jasenmichael/cloudKi-iot-rp4/master/scripts/install.sh | bash
+
+```
+
 #### -- CloudKi-iot Client software
 - cloudKi-iot-rp4
   - apps
