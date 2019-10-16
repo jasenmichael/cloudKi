@@ -37,9 +37,9 @@ sleep 1
 echo "$(tail -n +3 tmp)"
 eval "$(tail -n +3 tmp)" >/dev/null 2>&1
 sleep 1
-pm2 restart all
-sleep 2
 pm2 save
-pm2 list
+sleep 1
+# pm2 list
+pm2 restart all
 rm tmp
 cd $STARTING_DIR
