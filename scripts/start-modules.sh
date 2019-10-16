@@ -15,12 +15,17 @@ for D in *; do
         # if [ grep -Fxq "${D}" .configured ]; then
         if grep -Fxq "${D}" .configured
         then
+        #     echo "${D} configured"            
+        # else
             echo "Configuring ${D}"
             if [ -f "${D}/package.json" ]; then
-                echo "$D" > .configured
+                echo "$D" >> .configured
+                pm2 delete $D >/dev/null 2>&1
+                # echo "$D"
                 cd "${D}"
                 npm install
-                pm2 start -n "${D}" npm -- start
+                pm2 start -n "${D}" npm -- start >/dev/null 2>&1
+                sleep 1
                 cd ..
             fi
         fi
@@ -29,7 +34,9 @@ done
 
 pm2 startup > tmp
 echo "$(tail -n +3 tmp)"
-# eval "$(tail -n +3 tmp)" >/dev/null 2>&1
-
+eval "$(tail -n +3 tmp)" >/dev/null 2>&1
+sleep 2
+pm2 save
+pm2 list
 rm tmp
 cd $STARTING_DIR
