@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+
+echo "Installing Modules"
 # echo "starting dir $PWD"
 STARTING_DIR=$PWD
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-echo "script dir $SCRIPT_DIR"
+# echo "script dir $SCRIPT_DIR"
 
 cd $SCRIPT_DIR
 cd ../
@@ -28,3 +30,4 @@ npm install
 
 # echo $PWD
 cd $STARTING_DIR
+echo "Modules installed"
