@@ -10,6 +10,10 @@ else
 fi
 
 # check if scripts and modules directory exist
+if [ -d "cloudKi" ]; then
+    cd $DIR
+fi
+
 if [ -d "scripts" ] && [ -d "apps" ]; then
     echo >/dev/null 2>&1
 else

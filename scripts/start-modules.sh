@@ -27,7 +27,7 @@ done
 
 pm2 startup > tmp
 echo "$(tail -n +3 tmp)"
-eval "$(tail -n +3 tmp)" >/dev/null 2>&1
+# eval "$(tail -n +3 tmp)" >/dev/null 2>&1
 
 rm tmp
 cd $STARTING_DIR
