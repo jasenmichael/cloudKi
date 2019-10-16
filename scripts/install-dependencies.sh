@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#  check dependencies
 without_sudo="true"
 not_met=""
 verify(){

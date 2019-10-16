@@ -12,3 +12,5 @@ modules/*
 # default modules included in cloudKi
 !modules/cloud-client
 !modules/static-server
+
+*.tar
