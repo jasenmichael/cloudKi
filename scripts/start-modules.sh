@@ -12,7 +12,6 @@ fi
 
 for D in *; do
     if [ -d "${D}" ]; then
-        
         echo "Configuring ${D}"
         # if [ grep -Fxq "${D}" .configured ]; then
         if grep -Fxq "${D}" .configured
@@ -37,12 +36,30 @@ done
 
 pm2 startup > tmp
 sleep 1
-# echo "$(tail -n +3 tmp)"
+echo "now installing modules at startup(password may be required)"
+echo "$(tail -n +3 tmp)"
 eval "$(tail -n +3 tmp)" >/dev/null 2>&1
-sleep 3
+sleep 2
 pm2 save -f >/dev/null 2>&1
+sleep 2
 pm2 restart all >/dev/null 2>&1
 sleep 1
 pm2 list
 rm tmp
 cd $STARTING_DIR
+
+lanip="$(hostname --ip-address)"
+cat << EOF
+Modules started susessfully
+
+UI locally at 
+   http://localhost:8081
+UI over lan at 
+   http://${lanip}:8081
+
+Static Server locally at
+   http://localhost:8080
+Static Server over lan at
+   http://${lanip}:8080
+
+EOF
