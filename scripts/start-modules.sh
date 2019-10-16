@@ -12,7 +12,9 @@ fi
 
 for D in *; do
     if [ -d "${D}" ]; then
-        if [ grep -Fxq "${D}" .configured ]; then
+        # if [ grep -Fxq "${D}" .configured ]; then
+        if grep -Fxq "${D}" .configured
+        then
             echo "Configuring ${D}"
             if [ -f "${D}/package.json" ]; then
                 echo "$D" > .configured
