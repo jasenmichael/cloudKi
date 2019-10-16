@@ -5,7 +5,7 @@ STARTING_DIR=$PWD
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $SCRIPT_DIR
 cd ../modules
-echo "Configuring and starting Modules"
+echo "Configuring and Starting Modules"
 if [ ! -f ".configured" ]; then
     touch .configured
 fi
@@ -18,7 +18,6 @@ for D in *; do
         then
             echo "${D} already configured"
         else
-            echo "Configuring ${D}"
             if [ -f "${D}/package.json" ]; then
                 echo "$D"
                 echo "$D" >> .configured
@@ -28,6 +27,7 @@ for D in *; do
                 npm install
                 pm2 start -n "${D}" npm -- start >/dev/null 2>&1
                 sleep 1
+                echo "${D} configured"
                 cd ..
             fi
         fi
@@ -36,7 +36,8 @@ done
 
 pm2 startup > tmp
 sleep 1
-echo "now installing modules at startup(password may be required)"
+echo "---------------------"
+echo "Now installing modules at startup(password may be required)"
 echo "$(tail -n +3 tmp)"
 eval "$(tail -n +3 tmp)" >/dev/null 2>&1
 sleep 2
@@ -52,9 +53,9 @@ lanip="$(hostname --ip-address)"
 cat << EOF
 Modules started susessfully
 
-UI locally at 
+UI locally at
    http://localhost:8081
-UI over lan at 
+UI over lan at
    http://${lanip}:8081
 
 Static Server locally at

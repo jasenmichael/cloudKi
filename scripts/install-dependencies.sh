@@ -34,6 +34,7 @@ verify(){
 }
 
 checkDependencies() {
+    echo "---------------------"
     echo "Checking dependencies..."
     echo "Node Version"
     verify node "node -v"
@@ -49,9 +50,9 @@ checkDependencies() {
         echo "exiting"
         exit 1
     else
-        echo "Dependencies met.."
+        echo "Dependencies met..."
+        echo "---------------------"
     fi
     
 }
 checkDependencies
-echo "installation complete"

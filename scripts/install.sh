@@ -23,4 +23,6 @@ fi
 ./scripts/install-dependencies.sh
 ./scripts/install-modules.sh
 ./scripts/start-modules.sh
+echo "---------------------""
+echo "Installation complete"
 cd $STARTING_DIR
