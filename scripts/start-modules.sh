@@ -33,8 +33,11 @@ for D in *; do
 done
 
 pm2 startup > tmp
+sleep 1
 echo "$(tail -n +3 tmp)"
 eval "$(tail -n +3 tmp)" >/dev/null 2>&1
+sleep 1
+pm2 restart all
 sleep 2
 pm2 save
 pm2 list
