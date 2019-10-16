@@ -18,4 +18,5 @@ else
 fi
 ./scripts/install-dependencies.sh
 ./scripts/install-modules.sh
+./scripts/start-modules.sh
 cd $STARTING_DIR
